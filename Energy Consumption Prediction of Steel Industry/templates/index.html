@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Steel Energy Usage Predictor</title>
+   </head>
+   <body>
+      <h2>Enter Steel Industry Data:</h2>
+      <form action = "{{ url_for('predict') }}" method = "POST">
+         Lagging Reactive Power (kVarh): <input type="text" name="Lagging_Reactive_Power_kVarh"><br><br>
+         Leading Reactive Power (kVarh): <input type="text" name="Leading_Reactive_Power_kVarh"><br><br>
+         CO2 (tCO2): <input type="text" name="CO2"><br><br>
+         Lagging Power Factor: <input type="text" name="Lagging_Power_Factor"><br><br>
+         Leading Power Factor: <input type="text" name="Leading_Power_Factor"><br><br>
+		 NSM (seconds): <input type="text" name="NSM"><br><br>
+         WeekStatus: 
+         <select name="WeekStatus">
+            <option value="0">Weekday</option>
+            <option value="1">Weekend</option>
+         </select><br><br>
+         Day of Week: 
+         <select name="Day_of_week">
+            <option value="0">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+            <option value="5">Saturday</option>
+            <option value="6">Sunday</option>
+         </select><br><br>
+         Load Type: 
+         <select name="Load_Type">
+            <option value="0">Light_Load</option>
+            <option value="1">Medium_Load</option>
+            <option value="2">Maximum_Load</option>
+         </select><br><br>
+         <input type="submit" value="Predict Steel Energy Usage">
+      </form>
+	  {{ prediction_text }}
+   </body>
+</html>
+
